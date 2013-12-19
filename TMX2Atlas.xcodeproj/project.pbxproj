@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7310D9B018623CFB0051B771 /* MCMTileset.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310D9AF18623CFB0051B771 /* MCMTileset.m */; };
+		7310D9B2186252E20051B771 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7310D9B1186252E20051B771 /* README.md */; };
+		7310D9B5186278150051B771 /* MCMLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310D9B4186278150051B771 /* MCMLayer.m */; };
 		7335635B1861F6C200817015 /* MCMMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335635A1861F6C200817015 /* MCMMap.m */; };
 		7335635F1861FC7900817015 /* MCMTMXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335635E1861FC7900817015 /* MCMTMXParser.m */; };
 		73ECFA171861484600FB42F8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73ECFA161861484600FB42F8 /* Cocoa.framework */; };
@@ -34,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7310D9AE18623CFB0051B771 /* MCMTileset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMTileset.h; sourceTree = "<group>"; };
+		7310D9AF18623CFB0051B771 /* MCMTileset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMTileset.m; sourceTree = "<group>"; };
+		7310D9B1186252E20051B771 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
+		7310D9B3186278150051B771 /* MCMLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMLayer.h; sourceTree = "<group>"; };
+		7310D9B4186278150051B771 /* MCMLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMLayer.m; sourceTree = "<group>"; };
 		733563591861F6C200817015 /* MCMMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMMap.h; sourceTree = "<group>"; };
 		7335635A1861F6C200817015 /* MCMMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMMap.m; sourceTree = "<group>"; };
 		7335635D1861FC7900817015 /* MCMTMXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMTMXParser.h; sourceTree = "<group>"; };
@@ -86,6 +94,10 @@
 			children = (
 				733563591861F6C200817015 /* MCMMap.h */,
 				7335635A1861F6C200817015 /* MCMMap.m */,
+				7310D9AE18623CFB0051B771 /* MCMTileset.h */,
+				7310D9AF18623CFB0051B771 /* MCMTileset.m */,
+				7310D9B3186278150051B771 /* MCMLayer.h */,
+				7310D9B4186278150051B771 /* MCMLayer.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -156,6 +168,7 @@
 		73ECFA1D1861484600FB42F8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7310D9B1186252E20051B771 /* README.md */,
 				73ECFA1E1861484600FB42F8 /* TMX2Atlas-Info.plist */,
 				73ECFA1F1861484600FB42F8 /* InfoPlist.strings */,
 				73ECFA221861484600FB42F8 /* main.m */,
@@ -260,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7310D9B2186252E20051B771 /* README.md in Resources */,
 				73ECFA211861484600FB42F8 /* InfoPlist.strings in Resources */,
 				73ECFA321861484600FB42F8 /* Images.xcassets in Resources */,
 				73ECFA2D1861484600FB42F8 /* MCMDocument.xib in Resources */,
@@ -284,9 +298,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7335635F1861FC7900817015 /* MCMTMXParser.m in Sources */,
+				7310D9B018623CFB0051B771 /* MCMTileset.m in Sources */,
 				73ECFA2A1861484600FB42F8 /* MCMDocument.m in Sources */,
 				73ECFA231861484600FB42F8 /* main.m in Sources */,
 				7335635B1861F6C200817015 /* MCMMap.m in Sources */,
+				7310D9B5186278150051B771 /* MCMLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
