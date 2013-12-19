@@ -1,5 +1,5 @@
 @import Cocoa;
 
-@interface MCMDocument : NSDocument
+@interface MCMDocument : NSDocument <NSTableViewDataSource, NSTableViewDelegate>
 
 @end
