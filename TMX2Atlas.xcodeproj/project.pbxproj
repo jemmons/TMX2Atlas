@@ -10,6 +10,7 @@
 		7310D9B018623CFB0051B771 /* MCMTileset.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310D9AF18623CFB0051B771 /* MCMTileset.m */; };
 		7310D9B2186252E20051B771 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7310D9B1186252E20051B771 /* README.md */; };
 		7310D9B5186278150051B771 /* MCMLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310D9B4186278150051B771 /* MCMLayer.m */; };
+		7310D9B91863EEAB0051B771 /* MCMMainCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310D9B81863EEAB0051B771 /* MCMMainCellView.m */; };
 		7335635B1861F6C200817015 /* MCMMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335635A1861F6C200817015 /* MCMMap.m */; };
 		7335635F1861FC7900817015 /* MCMTMXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335635E1861FC7900817015 /* MCMTMXParser.m */; };
 		73ECFA171861484600FB42F8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73ECFA161861484600FB42F8 /* Cocoa.framework */; };
@@ -42,6 +43,8 @@
 		7310D9B1186252E20051B771 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		7310D9B3186278150051B771 /* MCMLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMLayer.h; sourceTree = "<group>"; };
 		7310D9B4186278150051B771 /* MCMLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMLayer.m; sourceTree = "<group>"; };
+		7310D9B71863EEAB0051B771 /* MCMMainCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMMainCellView.h; sourceTree = "<group>"; };
+		7310D9B81863EEAB0051B771 /* MCMMainCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMMainCellView.m; sourceTree = "<group>"; };
 		733563591861F6C200817015 /* MCMMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMMap.h; sourceTree = "<group>"; };
 		7335635A1861F6C200817015 /* MCMMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMMap.m; sourceTree = "<group>"; };
 		7335635D1861FC7900817015 /* MCMTMXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMTMXParser.h; sourceTree = "<group>"; };
@@ -89,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7310D9B61863EE8A0051B771 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7310D9B71863EEAB0051B771 /* MCMMainCellView.h */,
+				7310D9B81863EEAB0051B771 /* MCMMainCellView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		733563581861F68100817015 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +165,7 @@
 		73ECFA1C1861484600FB42F8 /* TMX2Atlas */ = {
 			isa = PBXGroup;
 			children = (
+				7310D9B61863EE8A0051B771 /* Views */,
 				733563581861F68100817015 /* Models */,
 				7335635C1861FBC200817015 /* Delegates */,
 				73ECFA281861484600FB42F8 /* MCMDocument.h */,
@@ -299,6 +312,7 @@
 			files = (
 				7335635F1861FC7900817015 /* MCMTMXParser.m in Sources */,
 				7310D9B018623CFB0051B771 /* MCMTileset.m in Sources */,
+				7310D9B91863EEAB0051B771 /* MCMMainCellView.m in Sources */,
 				73ECFA2A1861484600FB42F8 /* MCMDocument.m in Sources */,
 				73ECFA231861484600FB42F8 /* main.m in Sources */,
 				7335635B1861F6C200817015 /* MCMMap.m in Sources */,
