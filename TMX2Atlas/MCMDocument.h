@@ -6,5 +6,6 @@
 @property (weak) IBOutlet NSTextField *tileDimensionLabel;
 @property (weak) IBOutlet NSLayoutConstraint *tileHeightConstraint;
 @property (weak) IBOutlet NSLayoutConstraint *tileWidthConstraint;
+-(IBAction)exportDocument:(id)sender;
 
 @end

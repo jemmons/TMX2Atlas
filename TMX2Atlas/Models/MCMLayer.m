@@ -1,6 +1,11 @@
 #import "MCMLayer.h"
 #import "NSArray+HOF.h"
 
+NSString * const TMXLayerNameKey = @"TMXLayerName";
+NSString * const TMXLayerIsVisibleKey = @"TMXLayerIsVisible";
+NSString * const TMXLayerOpacityKey = @"TMXLayerOpacity";
+NSString * const TMXLayerTilesKey = @"TMXLayerTiles";
+
 
 @implementation MCMLayer
 #pragma mark - INIT/SETUP
@@ -37,6 +42,15 @@
 
 -(NSString *)description{
   return [NSString stringWithFormat:@"%@: %@/%.2f, %lu tiles", [self name], [self isVisible]?@"visible":@"hidden", [self opacity], (unsigned long)[[self tiles] count]];
+}
+
+
+#pragma mark - ACTIONS
+-(NSDictionary *)serialize{
+  return @{TMXLayerNameKey: [self name],
+           TMXLayerIsVisibleKey: @([self isVisible]),
+           TMXLayerOpacityKey: @([self opacity]),
+           TMXLayerTilesKey: [self tiles]};
 }
 
 @end

@@ -39,6 +39,22 @@ static NSString * const kLayerCell = @"LayerCell";
 }
 
 
+-(void)windowControllerDidLoadNib:(NSWindowController *)windowController{
+  [[self titleLabel] setStringValue:[self displayName]];
+  [[self detailLabel] setStringValue:[NSString stringWithFormat:@"(%lu × %lu tiles)", (unsigned long)[[self map] width], (unsigned long)[[self map] height]]];
+  [[self tileDimensionLabel] setStringValue:[NSString stringWithFormat:@"%lu × %lu", (unsigned long)[[self map] tileWidth], (unsigned long)[[self map] tileWidth]]];
+  [[self tileWidthConstraint] setConstant:[[self map] tileWidth]];
+  [[self tileHeightConstraint] setConstant:[[self map] tileHeight]];
+}
+
+
+#pragma mark - ACTIONS
+-(IBAction)exportDocument:(id)sender{
+  NSDictionary *map = [[self map] serialize];
+  NSLog(@"map: %@", map);
+}
+
+
 #pragma mark - DOCUMENT METHODS
 -(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError{
   BOOL success = YES;
@@ -55,15 +71,6 @@ static NSString * const kLayerCell = @"LayerCell";
     success = NO;
   }
   return success;
-}
-
-
--(void)windowControllerDidLoadNib:(NSWindowController *)windowController{
-  [[self titleLabel] setStringValue:[self displayName]];
-  [[self detailLabel] setStringValue:[NSString stringWithFormat:@"(%lu × %lu tiles)", (unsigned long)[[self map] width], (unsigned long)[[self map] height]]];
-  [[self tileDimensionLabel] setStringValue:[NSString stringWithFormat:@"%lu × %lu", (unsigned long)[[self map] tileWidth], (unsigned long)[[self map] tileWidth]]];
-  [[self tileWidthConstraint] setConstant:[[self map] tileWidth]];
-  [[self tileHeightConstraint] setConstant:[[self map] tileHeight]];
 }
 
 

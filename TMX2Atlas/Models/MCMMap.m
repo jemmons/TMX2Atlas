@@ -3,6 +3,17 @@
 #import "MCMTileset.h"
 #import "MCMLayer.h"
 
+#import "NSArray+HOF.h"
+
+NSString * const TMXMapVersionKey = @"TMXMapVersion";
+NSString * const TMXMapOrientationKey = @"TMXMapOrientation";
+NSString * const TMXMapWidthKey = @"TMXMapWidth";
+NSString * const TMXMapHeightKey = @"TMXMapHeight";
+NSString * const TMXMapTileWidthKey = @"TMXMapTileWidth";
+NSString * const TMXMapTileHeightKey = @"TMXMapTileHeight";
+NSString * const TMXMapTilesetsKey = @"TMXMapTiles";
+NSString * const TMXMapLayersKey = @"TMXMapLayers";
+
 
 @implementation MCMMap
 #pragma mark - INIT/SETUP
@@ -36,5 +47,33 @@
 
 -(NSString *)description{
   return [NSString stringWithFormat:@"%@\nversion: %@\norientation: %@\nmap size: [%lu, %lu]\ntile size: [%f, %f]\ntilesets: %@\nlayers: %@", [super description], [self version], [self orientation], (unsigned long)[self width], (unsigned long)[self height], [self tileWidth], [self tileHeight], [self tilesets], [self layers]];
+}
+
+
+#pragma mark - ACTIONS
+-(NSDictionary *)serialize{
+  return @{TMXMapVersionKey: [self version],
+           TMXMapOrientationKey: [self orientation],
+           TMXMapWidthKey: @([self width]),
+           TMXMapHeightKey: @([self height]),
+           TMXMapTileWidthKey: @([self tileWidth]),
+           TMXMapTileHeightKey: @([self tileHeight]),
+           TMXMapTilesetsKey: [self serializeTilesets],
+           TMXMapLayersKey: [self serializeLayers]};
+}
+
+
+#pragma mark - UTILITY
+-(NSArray *)serializeTilesets{
+  return [[self tilesets] map:^id(id it) {
+    return [it serialize];
+  }];
+}
+
+
+-(NSArray *)serializeLayers{
+  return [[self layers] map:^id(id it) {
+    return [it serialize];
+  }];
 }
 @end

@@ -1,5 +1,11 @@
 #import "MCMTileset.h"
 
+NSString * const TMXTilesetNameKey = @"TMXTilesetName";
+NSString * const TMXTilesetFirstGIDKey = @"TMXTilesetFirstGID";
+NSString * const TMXTilesetCountKey = @"TMXTilesetCount";
+NSString * const TMXTilesetTileWidthKey = @"TMXTilesetTileWidth";
+NSString * const TMXTilesetTileHeightKey = @"TMXTilesetTileHeight";
+
 
 @implementation MCMTileset
 #pragma mark - INIT/SETUP
@@ -21,5 +27,21 @@
 #pragma mark - ACCESSORS
 -(NSString *)description{
   return [NSString stringWithFormat:@"%@: %lu", [self name], (unsigned long)[self firstGID]];
+}
+
+
+-(NSUInteger)tileCount{
+  //TODO: count based on tile size and image dimensions.
+  return 0;
+}
+
+
+#pragma mark - ACTIONS
+-(NSDictionary *)serialize{
+  return @{TMXTilesetNameKey: [self name],
+           TMXTilesetFirstGIDKey: @([self firstGID]),
+           TMXTilesetCountKey: @([self tileCount]),
+           TMXTilesetTileWidthKey: @([self tileWidth]),
+           TMXTilesetTileHeightKey: @([self tileHeight])};
 }
 @end
