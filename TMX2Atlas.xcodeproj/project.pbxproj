@@ -11,12 +11,12 @@
 		7310D9B2186252E20051B771 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7310D9B1186252E20051B771 /* README.md */; };
 		7310D9B5186278150051B771 /* MCMLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310D9B4186278150051B771 /* MCMLayer.m */; };
 		7310D9B91863EEAB0051B771 /* MCMMainCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310D9B81863EEAB0051B771 /* MCMMainCellView.m */; };
+		73196F42186DF0E900A6FE22 /* MCMTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73196F41186DF0E900A6FE22 /* MCMTileView.m */; };
+		73196F45186E122100A6FE22 /* NSArray+HOF.m in Sources */ = {isa = PBXBuildFile; fileRef = 73196F44186E122100A6FE22 /* NSArray+HOF.m */; };
 		7335635B1861F6C200817015 /* MCMMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335635A1861F6C200817015 /* MCMMap.m */; };
 		7335635F1861FC7900817015 /* MCMTMXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335635E1861FC7900817015 /* MCMTMXParser.m */; };
 		73ECFA171861484600FB42F8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73ECFA161861484600FB42F8 /* Cocoa.framework */; };
-		73ECFA211861484600FB42F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73ECFA1F1861484600FB42F8 /* InfoPlist.strings */; };
 		73ECFA231861484600FB42F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ECFA221861484600FB42F8 /* main.m */; };
-		73ECFA271861484600FB42F8 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 73ECFA251861484600FB42F8 /* Credits.rtf */; };
 		73ECFA2A1861484600FB42F8 /* MCMDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ECFA291861484600FB42F8 /* MCMDocument.m */; };
 		73ECFA2D1861484600FB42F8 /* MCMDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73ECFA2B1861484600FB42F8 /* MCMDocument.xib */; };
 		73ECFA301861484600FB42F8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73ECFA2E1861484600FB42F8 /* MainMenu.xib */; };
@@ -45,6 +45,10 @@
 		7310D9B4186278150051B771 /* MCMLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMLayer.m; sourceTree = "<group>"; };
 		7310D9B71863EEAB0051B771 /* MCMMainCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMMainCellView.h; sourceTree = "<group>"; };
 		7310D9B81863EEAB0051B771 /* MCMMainCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMMainCellView.m; sourceTree = "<group>"; };
+		73196F40186DF0E900A6FE22 /* MCMTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMTileView.h; sourceTree = "<group>"; };
+		73196F41186DF0E900A6FE22 /* MCMTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMTileView.m; sourceTree = "<group>"; };
+		73196F43186E122100A6FE22 /* NSArray+HOF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HOF.h"; sourceTree = "<group>"; };
+		73196F44186E122100A6FE22 /* NSArray+HOF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+HOF.m"; sourceTree = "<group>"; };
 		733563591861F6C200817015 /* MCMMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMMap.h; sourceTree = "<group>"; };
 		7335635A1861F6C200817015 /* MCMMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMMap.m; sourceTree = "<group>"; };
 		7335635D1861FC7900817015 /* MCMTMXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMTMXParser.h; sourceTree = "<group>"; };
@@ -55,10 +59,8 @@
 		73ECFA1A1861484600FB42F8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		73ECFA1B1861484600FB42F8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		73ECFA1E1861484600FB42F8 /* TMX2Atlas-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TMX2Atlas-Info.plist"; sourceTree = "<group>"; };
-		73ECFA201861484600FB42F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		73ECFA221861484600FB42F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		73ECFA241861484600FB42F8 /* TMX2Atlas-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TMX2Atlas-Prefix.pch"; sourceTree = "<group>"; };
-		73ECFA261861484600FB42F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		73ECFA281861484600FB42F8 /* MCMDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCMDocument.h; sourceTree = "<group>"; };
 		73ECFA291861484600FB42F8 /* MCMDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCMDocument.m; sourceTree = "<group>"; };
 		73ECFA2C1861484600FB42F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MCMDocument.xib; sourceTree = "<group>"; };
@@ -97,6 +99,8 @@
 			children = (
 				7310D9B71863EEAB0051B771 /* MCMMainCellView.h */,
 				7310D9B81863EEAB0051B771 /* MCMMainCellView.m */,
+				73196F40186DF0E900A6FE22 /* MCMTileView.h */,
+				73196F41186DF0E900A6FE22 /* MCMTileView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,14 +185,15 @@
 		73ECFA1D1861484600FB42F8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				73196F43186E122100A6FE22 /* NSArray+HOF.h */,
+				73196F44186E122100A6FE22 /* NSArray+HOF.m */,
 				7310D9B1186252E20051B771 /* README.md */,
 				73ECFA1E1861484600FB42F8 /* TMX2Atlas-Info.plist */,
-				73ECFA1F1861484600FB42F8 /* InfoPlist.strings */,
 				73ECFA221861484600FB42F8 /* main.m */,
 				73ECFA241861484600FB42F8 /* TMX2Atlas-Prefix.pch */,
-				73ECFA251861484600FB42F8 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 		73ECFA3D1861484600FB42F8 /* TMX2AtlasTests */ = {
@@ -287,10 +292,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7310D9B2186252E20051B771 /* README.md in Resources */,
-				73ECFA211861484600FB42F8 /* InfoPlist.strings in Resources */,
 				73ECFA321861484600FB42F8 /* Images.xcassets in Resources */,
 				73ECFA2D1861484600FB42F8 /* MCMDocument.xib in Resources */,
-				73ECFA271861484600FB42F8 /* Credits.rtf in Resources */,
 				73ECFA301861484600FB42F8 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,9 +316,11 @@
 				7335635F1861FC7900817015 /* MCMTMXParser.m in Sources */,
 				7310D9B018623CFB0051B771 /* MCMTileset.m in Sources */,
 				7310D9B91863EEAB0051B771 /* MCMMainCellView.m in Sources */,
+				73196F45186E122100A6FE22 /* NSArray+HOF.m in Sources */,
 				73ECFA2A1861484600FB42F8 /* MCMDocument.m in Sources */,
 				73ECFA231861484600FB42F8 /* main.m in Sources */,
 				7335635B1861F6C200817015 /* MCMMap.m in Sources */,
+				73196F42186DF0E900A6FE22 /* MCMTileView.m in Sources */,
 				7310D9B5186278150051B771 /* MCMLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,22 +344,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		73ECFA1F1861484600FB42F8 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				73ECFA201861484600FB42F8 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		73ECFA251861484600FB42F8 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				73ECFA261861484600FB42F8 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
 		73ECFA2B1861484600FB42F8 /* MCMDocument.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -457,8 +446,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TMX2Atlas/TMX2Atlas-Prefix.pch";
-				INFOPLIST_FILE = "TMX2Atlas/TMX2Atlas-Info.plist";
+				GCC_PREFIX_HEADER = "TMX2Atlas/Supporting/TMX2Atlas-Prefix.pch";
+				INFOPLIST_FILE = "TMX2Atlas/Supporting/TMX2Atlas-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -471,8 +460,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TMX2Atlas/TMX2Atlas-Prefix.pch";
-				INFOPLIST_FILE = "TMX2Atlas/TMX2Atlas-Info.plist";
+				GCC_PREFIX_HEADER = "TMX2Atlas/Supporting/TMX2Atlas-Prefix.pch";
+				INFOPLIST_FILE = "TMX2Atlas/Supporting/TMX2Atlas-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
