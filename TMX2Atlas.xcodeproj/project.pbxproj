@@ -13,6 +13,7 @@
 		7310D9B91863EEAB0051B771 /* MCMMainCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310D9B81863EEAB0051B771 /* MCMMainCellView.m */; };
 		73196F42186DF0E900A6FE22 /* MCMTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73196F41186DF0E900A6FE22 /* MCMTileView.m */; };
 		73196F45186E122100A6FE22 /* NSArray+HOF.m in Sources */ = {isa = PBXBuildFile; fileRef = 73196F44186E122100A6FE22 /* NSArray+HOF.m */; };
+		73196F49186F472200A6FE22 /* MCMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73196F48186F472200A6FE22 /* MCMAppDelegate.m */; };
 		7335635B1861F6C200817015 /* MCMMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335635A1861F6C200817015 /* MCMMap.m */; };
 		7335635F1861FC7900817015 /* MCMTMXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335635E1861FC7900817015 /* MCMTMXParser.m */; };
 		73ECFA171861484600FB42F8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73ECFA161861484600FB42F8 /* Cocoa.framework */; };
@@ -49,6 +50,8 @@
 		73196F41186DF0E900A6FE22 /* MCMTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMTileView.m; sourceTree = "<group>"; };
 		73196F43186E122100A6FE22 /* NSArray+HOF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HOF.h"; sourceTree = "<group>"; };
 		73196F44186E122100A6FE22 /* NSArray+HOF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+HOF.m"; sourceTree = "<group>"; };
+		73196F47186F472200A6FE22 /* MCMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMAppDelegate.h; sourceTree = "<group>"; };
+		73196F48186F472200A6FE22 /* MCMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMAppDelegate.m; sourceTree = "<group>"; };
 		733563591861F6C200817015 /* MCMMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMMap.h; sourceTree = "<group>"; };
 		7335635A1861F6C200817015 /* MCMMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMMap.m; sourceTree = "<group>"; };
 		7335635D1861FC7900817015 /* MCMTMXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMTMXParser.h; sourceTree = "<group>"; };
@@ -103,6 +106,17 @@
 				73196F41186DF0E900A6FE22 /* MCMTileView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		73196F46186F464500A6FE22 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				73ECFA281861484600FB42F8 /* MCMDocument.h */,
+				73ECFA291861484600FB42F8 /* MCMDocument.m */,
+				73196F47186F472200A6FE22 /* MCMAppDelegate.h */,
+				73196F48186F472200A6FE22 /* MCMAppDelegate.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		733563581861F68100817015 /* Models */ = {
@@ -172,8 +186,7 @@
 				7310D9B61863EE8A0051B771 /* Views */,
 				733563581861F68100817015 /* Models */,
 				7335635C1861FBC200817015 /* Delegates */,
-				73ECFA281861484600FB42F8 /* MCMDocument.h */,
-				73ECFA291861484600FB42F8 /* MCMDocument.m */,
+				73196F46186F464500A6FE22 /* Controllers */,
 				73ECFA2B1861484600FB42F8 /* MCMDocument.xib */,
 				73ECFA2E1861484600FB42F8 /* MainMenu.xib */,
 				73ECFA311861484600FB42F8 /* Images.xcassets */,
@@ -315,6 +328,7 @@
 			files = (
 				7335635F1861FC7900817015 /* MCMTMXParser.m in Sources */,
 				7310D9B018623CFB0051B771 /* MCMTileset.m in Sources */,
+				73196F49186F472200A6FE22 /* MCMAppDelegate.m in Sources */,
 				7310D9B91863EEAB0051B771 /* MCMMainCellView.m in Sources */,
 				73196F45186E122100A6FE22 /* NSArray+HOF.m in Sources */,
 				73ECFA2A1861484600FB42F8 /* MCMDocument.m in Sources */,
