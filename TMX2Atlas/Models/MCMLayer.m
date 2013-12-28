@@ -1,4 +1,5 @@
 #import "MCMLayer.h"
+#import "NSArray+HOF.h"
 
 
 @implementation MCMLayer
@@ -22,6 +23,13 @@
 
 
 #pragma mark - ACCESSORS
+-(NSArray *)fullTiles{
+  return [[self tiles] filter:^BOOL(id it) {
+    return [it integerValue];
+  }];
+}
+
+
 -(void)addTile:(NSInteger)tileID{
   [self setTiles:[[self tiles] arrayByAddingObject:@(tileID)]];
 }
