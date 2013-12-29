@@ -24,4 +24,5 @@ FOUNDATION_EXPORT NSString * const TMXMapLayersKey;
 -(void)addTileset:(MCMTileset *)aTileset;
 -(void)addLayer:(MCMLayer *)aLayer;
 -(NSDictionary *)serialize;
+-(NSDictionary *)tileImages;
 @end

@@ -45,6 +45,15 @@ NSString * const TMXMapLayersKey = @"TMXMapLayers";
 }
 
 
+-(NSDictionary *)tileImages{
+  NSMutableDictionary *tileImages = [NSMutableDictionary dictionaryWithCapacity:5000];
+  [[self tilesets] enumerateObjectsUsingBlock:^(MCMTileset *tileset, NSUInteger idx, BOOL *stop) {
+    [tileImages addEntriesFromDictionary:[tileset images]];
+  }];
+  return tileImages;
+}
+
+
 -(NSString *)description{
   return [NSString stringWithFormat:@"%@\nversion: %@\norientation: %@\nmap size: [%lu, %lu]\ntile size: [%f, %f]\ntilesets: %@\nlayers: %@", [super description], [self version], [self orientation], (unsigned long)[self width], (unsigned long)[self height], [self tileWidth], [self tileHeight], [self tilesets], [self layers]];
 }

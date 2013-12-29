@@ -1,5 +1,6 @@
 @import Foundation;
 
+
 FOUNDATION_EXPORT NSString * const TMXTilesetNameKey;
 FOUNDATION_EXPORT NSString * const TMXTilesetFirstGIDKey;
 FOUNDATION_EXPORT NSString * const TMXTilesetCountKey;
@@ -17,4 +18,5 @@ FOUNDATION_EXPORT NSString * const TMXTilesetTileHeightKey;
 
 +(instancetype)tilesetWithAttributes:(NSDictionary *)att;
 -(NSDictionary *)serialize;
+-(NSDictionary *)images;
 @end

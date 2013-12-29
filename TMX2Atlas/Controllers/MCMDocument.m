@@ -51,7 +51,7 @@ static NSString * const kLayerCell = @"LayerCell";
 #pragma mark - ACTIONS
 -(IBAction)exportDocument:(id)sender{
   NSDictionary *map = [[self map] serialize];
-  NSLog(@"map: %@", map);
+  NSDictionary *images = [[self map] tileImages];
 }
 
 
@@ -111,11 +111,18 @@ static NSString * const kLayerCell = @"LayerCell";
 -(NSView *)layerCellForTable:(NSTableView *)tableView atIndex:(NSInteger)anIndex{
   NSTableCellView *cell = [tableView makeViewWithIdentifier:kLayerCell owner:self];
   MCMLayer *layer = [[[self map] layers] objectAtIndex:anIndex];
-  NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@:", [layer name]] attributes:@{NSFontAttributeName : [NSFont boldSystemFontOfSize:13.0f]}];
-  [att appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" %lu tiles", (unsigned long)[[layer fullTiles] count]]]];
+
+  NSString *name = [[layer name] stringByAppendingString:@":"];
+  NSFont *bold = [NSFont boldSystemFontOfSize:13.0f];
+  NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName: bold}];
+  
+  NSString *tiles = [NSString stringWithFormat:@" %lu tiles", (unsigned long)[[layer fullTiles] count]];
+  [att appendAttributedString:[[NSAttributedString alloc] initWithString:tiles]];
+  
   if( ! [layer isVisible]){
     [att addAttributes:@{NSStrikethroughStyleAttributeName : @(NSUnderlinePatternSolid | NSUnderlineStyleSingle)} range:NSMakeRange(0, [[att string] length])];
   }
+  
   [[cell textField] setAttributedStringValue:att];
   [cell setAlphaValue:[layer opacity]];
   return cell;
