@@ -10,12 +10,12 @@
 		7310D9B018623CFB0051B771 /* MCMTileset.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310D9AF18623CFB0051B771 /* MCMTileset.m */; };
 		7310D9B2186252E20051B771 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7310D9B1186252E20051B771 /* README.md */; };
 		7310D9B5186278150051B771 /* MCMLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310D9B4186278150051B771 /* MCMLayer.m */; };
-		7310D9B91863EEAB0051B771 /* MCMMainCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7310D9B81863EEAB0051B771 /* MCMMainCellView.m */; };
 		73196F42186DF0E900A6FE22 /* MCMTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73196F41186DF0E900A6FE22 /* MCMTileView.m */; };
 		73196F45186E122100A6FE22 /* NSArray+HOF.m in Sources */ = {isa = PBXBuildFile; fileRef = 73196F44186E122100A6FE22 /* NSArray+HOF.m */; };
 		73196F49186F472200A6FE22 /* MCMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73196F48186F472200A6FE22 /* MCMAppDelegate.m */; };
 		7335635B1861F6C200817015 /* MCMMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335635A1861F6C200817015 /* MCMMap.m */; };
 		7335635F1861FC7900817015 /* MCMTMXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335635E1861FC7900817015 /* MCMTMXParser.m */; };
+		7363FB0D18711E11004E081D /* MCMWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7363FB0C18711E11004E081D /* MCMWindowController.m */; };
 		73ECFA171861484600FB42F8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73ECFA161861484600FB42F8 /* Cocoa.framework */; };
 		73ECFA231861484600FB42F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ECFA221861484600FB42F8 /* main.m */; };
 		73ECFA2A1861484600FB42F8 /* MCMDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ECFA291861484600FB42F8 /* MCMDocument.m */; };
@@ -44,8 +44,6 @@
 		7310D9B1186252E20051B771 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		7310D9B3186278150051B771 /* MCMLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMLayer.h; sourceTree = "<group>"; };
 		7310D9B4186278150051B771 /* MCMLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMLayer.m; sourceTree = "<group>"; };
-		7310D9B71863EEAB0051B771 /* MCMMainCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMMainCellView.h; sourceTree = "<group>"; };
-		7310D9B81863EEAB0051B771 /* MCMMainCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMMainCellView.m; sourceTree = "<group>"; };
 		73196F40186DF0E900A6FE22 /* MCMTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMTileView.h; sourceTree = "<group>"; };
 		73196F41186DF0E900A6FE22 /* MCMTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMTileView.m; sourceTree = "<group>"; };
 		73196F43186E122100A6FE22 /* NSArray+HOF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HOF.h"; sourceTree = "<group>"; };
@@ -56,6 +54,8 @@
 		7335635A1861F6C200817015 /* MCMMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMMap.m; sourceTree = "<group>"; };
 		7335635D1861FC7900817015 /* MCMTMXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMTMXParser.h; sourceTree = "<group>"; };
 		7335635E1861FC7900817015 /* MCMTMXParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMTMXParser.m; sourceTree = "<group>"; };
+		7363FB0B18711E11004E081D /* MCMWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMWindowController.h; sourceTree = "<group>"; };
+		7363FB0C18711E11004E081D /* MCMWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMWindowController.m; sourceTree = "<group>"; };
 		73ECFA131861484600FB42F8 /* TMX2Atlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMX2Atlas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73ECFA161861484600FB42F8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		73ECFA191861484600FB42F8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -100,8 +100,6 @@
 		7310D9B61863EE8A0051B771 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7310D9B71863EEAB0051B771 /* MCMMainCellView.h */,
-				7310D9B81863EEAB0051B771 /* MCMMainCellView.m */,
 				73196F40186DF0E900A6FE22 /* MCMTileView.h */,
 				73196F41186DF0E900A6FE22 /* MCMTileView.m */,
 			);
@@ -111,10 +109,12 @@
 		73196F46186F464500A6FE22 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				73ECFA281861484600FB42F8 /* MCMDocument.h */,
-				73ECFA291861484600FB42F8 /* MCMDocument.m */,
 				73196F47186F472200A6FE22 /* MCMAppDelegate.h */,
 				73196F48186F472200A6FE22 /* MCMAppDelegate.m */,
+				73ECFA281861484600FB42F8 /* MCMDocument.h */,
+				73ECFA291861484600FB42F8 /* MCMDocument.m */,
+				7363FB0B18711E11004E081D /* MCMWindowController.h */,
+				7363FB0C18711E11004E081D /* MCMWindowController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -329,7 +329,7 @@
 				7335635F1861FC7900817015 /* MCMTMXParser.m in Sources */,
 				7310D9B018623CFB0051B771 /* MCMTileset.m in Sources */,
 				73196F49186F472200A6FE22 /* MCMAppDelegate.m in Sources */,
-				7310D9B91863EEAB0051B771 /* MCMMainCellView.m in Sources */,
+				7363FB0D18711E11004E081D /* MCMWindowController.m in Sources */,
 				73196F45186E122100A6FE22 /* NSArray+HOF.m in Sources */,
 				73ECFA2A1861484600FB42F8 /* MCMDocument.m in Sources */,
 				73ECFA231861484600FB42F8 /* main.m in Sources */,

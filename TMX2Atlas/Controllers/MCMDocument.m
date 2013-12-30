@@ -1,17 +1,8 @@
 #import "MCMDocument.h"
 
+#import "MCMWindowController.h"
 #import "MCMTMXParser.h"
 #import "MCMMap.h"
-#import "MCMTileset.h"
-#import "MCMLayer.h"
-#import "MCMMainCellView.h"
-
-
-static NSString * const kTilesetTable = @"TilesetTable";
-static NSString * const kLayerTable = @"LayerTable";
-static NSString * const kTilesetCell = @"TilesetCell";
-static NSString * const kLayerCell = @"LayerCell";
-
 
 
 @interface MCMDocument ()
@@ -29,103 +20,74 @@ static NSString * const kLayerCell = @"LayerCell";
 }
 
 
+#pragma mark - ACTIONS
+-(IBAction)exportDocument:(id)sender{
+  NSURL *url = [NSURL fileURLWithPath:@"/tmp/foo.plist"];
+  
+  if( ! [self filesExistAtURL:url]){
+    [self writeFilesToURL:url];
+  }
+}
+
+
+#pragma mark - DOCUMENT METHODS
 +(BOOL)autosavesInPlace{
   return NO;
 }
 
 
--(NSString *)windowNibName{
-  return @"MCMDocument";
-}
-
-
--(void)windowControllerDidLoadNib:(NSWindowController *)windowController{
-  [[self titleLabel] setStringValue:[self displayName]];
-  [[self detailLabel] setStringValue:[NSString stringWithFormat:@"(%lu × %lu tiles)", (unsigned long)[[self map] width], (unsigned long)[[self map] height]]];
-  [[self tileDimensionLabel] setStringValue:[NSString stringWithFormat:@"%lu × %lu", (unsigned long)[[self map] tileWidth], (unsigned long)[[self map] tileWidth]]];
-  [[self tileWidthConstraint] setConstant:[[self map] tileWidth]];
-  [[self tileHeightConstraint] setConstant:[[self map] tileHeight]];
-}
-
-
-#pragma mark - ACTIONS
--(IBAction)exportDocument:(id)sender{
-  NSDictionary *map = [[self map] serialize];
-  NSDictionary *images = [[self map] tileImages];
-}
-
-
-#pragma mark - DOCUMENT METHODS
 -(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError{
   BOOL success = YES;
   
   MCMTMXParser *parser = [[MCMTMXParser alloc] initWithURL:url];
   [self setMap:[parser parse]];
   
-  if([self map]){
-    [[self titleLabel] setStringValue:[url lastPathComponent]];
-    [[self detailLabel] setStringValue:@"something"];
-  } else{
+  if( ! [self map]){
+    success = NO;
     NSDictionary *userInfo = @{NSLocalizedDescriptionKey : NSLocalizedString(@"Could not parse TMX file.", nil), NSLocalizedFailureReasonErrorKey : NSLocalizedString(@"Unknown error occured.", nil), NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString(@"Try exporting the TMX again with approved settings.", nil)};
     *outError = [NSError errorWithDomain:@"TMX2AtlasDomain" code:-100 userInfo:userInfo];
-    success = NO;
   }
   return success;
 }
 
 
-#pragma mark - TABLE VIEW DATA SOURCE
--(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
-  NSInteger numberOfRows = 0;
-  if([kTilesetTable isEqualToString:[tableView identifier]]){
-    numberOfRows = [[[self map] tilesets] count];
-  } else if([kLayerTable isEqualToString:[tableView identifier]]){
-    numberOfRows = [[[self map] layers] count];
-  }
-  return numberOfRows;
-}
-
-
-#pragma mark - TABLE VIEW DELEGATE
--(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
-  NSView *cell = nil;
-  if([kTilesetTable isEqualToString:[tableView identifier]]){
-    cell = [self tilesetCellForTable:tableView atIndex:row];
-  } else if([kLayerTable isEqualToString:[tableView identifier]]){
-    cell = [self layerCellForTable:tableView atIndex:row];
-  }
-  return cell;
+-(void)makeWindowControllers{
+  NSWindowController *controller = [[MCMWindowController alloc] initWithMap:[self map]];
+  [self addWindowController:controller];
 }
 
 
 #pragma mark - UTILITY
--(NSView *)tilesetCellForTable:(NSTableView *)tableView atIndex:(NSInteger)anIndex{
-  NSTableCellView *cell = [tableView makeViewWithIdentifier:kTilesetCell owner:self];
-  MCMTileset *tileset = [[[self map] tilesets] objectAtIndex:anIndex];
-  [[cell imageView] setImage:[tileset image]];
-  [[cell textField] setStringValue:[tileset name]];
-  return cell;
+-(BOOL)filesExistAtURL:(NSURL *)aURL{
+  BOOL exists = NO;
+  NSFileManager *fm = [NSFileManager defaultManager];
+  if([fm fileExistsAtPath:[aURL path]]){
+    exists = YES;
+  }
+  if([fm fileExistsAtPath:[[[aURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"atlas"] path]]){
+    exists = YES;
+  }
+  return exists;
 }
 
 
--(NSView *)layerCellForTable:(NSTableView *)tableView atIndex:(NSInteger)anIndex{
-  NSTableCellView *cell = [tableView makeViewWithIdentifier:kLayerCell owner:self];
-  MCMLayer *layer = [[[self map] layers] objectAtIndex:anIndex];
+-(BOOL)writeFilesToURL:(NSURL *)aURL{
+  NSDictionary *map = [[self map] serialize];
+  [map writeToFile:[aURL path] atomically:NO];
 
-  NSString *name = [[layer name] stringByAppendingString:@":"];
-  NSFont *bold = [NSFont boldSystemFontOfSize:13.0f];
-  NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName: bold}];
+  NSError *error;
+  NSURL *directoryURL = [[aURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"atlas"];
+  [[NSFileManager defaultManager] createDirectoryAtURL:directoryURL withIntermediateDirectories:NO attributes:nil error:&error];
   
-  NSString *tiles = [NSString stringWithFormat:@" %lu tiles", (unsigned long)[[layer fullTiles] count]];
-  [att appendAttributedString:[[NSAttributedString alloc] initWithString:tiles]];
-  
-  if( ! [layer isVisible]){
-    [att addAttributes:@{NSStrikethroughStyleAttributeName : @(NSUnderlinePatternSolid | NSUnderlineStyleSingle)} range:NSMakeRange(0, [[att string] length])];
-  }
-  
-  [[cell textField] setAttributedStringValue:att];
-  [cell setAlphaValue:[layer opacity]];
-  return cell;
+  NSDictionary *images = [[self map] tileImages];
+  [images enumerateKeysAndObjectsUsingBlock:^(NSString *name, NSImage *image, BOOL *stop) {
+    NSURL *imageURL = [directoryURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", name]];
+    CGImageRef imageRef = [image CGImageForProposedRect:NULL context:nil hints:nil];
+    NSBitmapImageRep *bitmap = [[NSBitmapImageRep alloc] initWithCGImage:imageRef];
+    NSData *data = [bitmap representationUsingType:NSPNGFileType properties:nil];
+    [data writeToURL:imageURL atomically:NO];
+  }];
+  return YES;
 }
 
 @end
