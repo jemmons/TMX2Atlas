@@ -91,7 +91,7 @@
                             </menuItem>
                             <menuItem title="Export Atlas…" keyEquivalent="s" id="75">
                                 <connections>
-                                    <action selector="exportDocument:" target="-1" id="ixH-4F-Wu3"/>
+                                    <action selector="saveDocumentTo:" target="-1" id="wa7-an-Pys"/>
                                 </connections>
                             </menuItem>
                         </items>

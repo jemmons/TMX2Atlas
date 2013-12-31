@@ -20,16 +20,6 @@
 }
 
 
-#pragma mark - ACTIONS
--(IBAction)exportDocument:(id)sender{
-  NSURL *url = [NSURL fileURLWithPath:@"/tmp/foo.plist"];
-  
-  if( ! [self filesExistAtURL:url]){
-    [self writeFilesToURL:url];
-  }
-}
-
-
 #pragma mark - DOCUMENT METHODS
 +(BOOL)autosavesInPlace{
   return NO;
@@ -44,8 +34,7 @@
   
   if( ! [self map]){
     success = NO;
-    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : NSLocalizedString(@"Could not parse TMX file.", nil), NSLocalizedFailureReasonErrorKey : NSLocalizedString(@"Unknown error occured.", nil), NSLocalizedRecoverySuggestionErrorKey : NSLocalizedString(@"Try exporting the TMX again with approved settings.", nil)};
-    *outError = [NSError errorWithDomain:@"TMX2AtlasDomain" code:-100 userInfo:userInfo];
+    *outError = [NSError errorWithDomain:@"TMX2AtlasDomain" code:-100 userInfo:@{NSLocalizedDescriptionKey: @"Could not parse TMX file."}];
   }
   return success;
 }
@@ -54,40 +43,55 @@
 -(void)makeWindowControllers{
   NSWindowController *controller = [[MCMWindowController alloc] initWithMap:[self map]];
   [self addWindowController:controller];
+  NSLog(@"TYPE: %@", [self fileType]);
+}
+
+
+-(BOOL)prepareSavePanel:(NSSavePanel *)savePanel{
+  [savePanel setShowsTagField:NO];
+  [savePanel setExtensionHidden:NO];
+  [savePanel setCanSelectHiddenExtension:NO];
+  [savePanel setPrompt:@"Export"];
+  [savePanel setMessage:@"NOTE: an .atlas folder will be created\nautomatically along side this .plist"];
+  [savePanel setAllowedFileTypes:@[@"plist"]];
+  return YES;
+}
+
+
+-(BOOL)writeSafelyToURL:(NSURL *)url ofType:(NSString *)typeName forSaveOperation:(NSSaveOperationType)saveOperation error:(NSError *__autoreleasing *)outError{
+
+  NSDictionary *plist = [[self map] serialize];
+  BOOL plistSuccess = [plist writeToURL:url atomically:NO];
+  
+  NSDictionary *images = [[self map] tileImages];
+  BOOL imageSuccess = [self saveAtlasImages:images withURL:url];
+  return plistSuccess && imageSuccess;
 }
 
 
 #pragma mark - UTILITY
--(BOOL)filesExistAtURL:(NSURL *)aURL{
-  BOOL exists = NO;
-  NSFileManager *fm = [NSFileManager defaultManager];
-  if([fm fileExistsAtPath:[aURL path]]){
-    exists = YES;
-  }
-  if([fm fileExistsAtPath:[[[aURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"atlas"] path]]){
-    exists = YES;
-  }
-  return exists;
+-(NSURL *)atlasURLFromURL:(NSURL *)plistURL{
+  return [[plistURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"atlas"];
 }
 
 
--(BOOL)writeFilesToURL:(NSURL *)aURL{
-  NSDictionary *map = [[self map] serialize];
-  [map writeToFile:[aURL path] atomically:NO];
-
-  NSError *error;
-  NSURL *directoryURL = [[aURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"atlas"];
-  [[NSFileManager defaultManager] createDirectoryAtURL:directoryURL withIntermediateDirectories:NO attributes:nil error:&error];
+-(BOOL)saveAtlasImages:(NSDictionary *)images withURL:(NSURL *)plistURL{
+  __block BOOL success = YES;
+  NSURL *dirURL = [self atlasURLFromURL:plistURL];
+  //We don't care if this succeeds. If the directory doesn't exist we'll error our below.
+  [[NSFileManager defaultManager] createDirectoryAtURL:dirURL withIntermediateDirectories:NO attributes:nil error:NULL];
   
-  NSDictionary *images = [[self map] tileImages];
   [images enumerateKeysAndObjectsUsingBlock:^(NSString *name, NSImage *image, BOOL *stop) {
-    NSURL *imageURL = [directoryURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", name]];
+    NSURL *imageURL = [dirURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", name]];
     CGImageRef imageRef = [image CGImageForProposedRect:NULL context:nil hints:nil];
     NSBitmapImageRep *bitmap = [[NSBitmapImageRep alloc] initWithCGImage:imageRef];
     NSData *data = [bitmap representationUsingType:NSPNGFileType properties:nil];
-    [data writeToURL:imageURL atomically:NO];
+    if( ! [data writeToURL:imageURL atomically:NO]){
+      success = NO;
+      //We could cancel the loop here, but we've flagged the error and it's more consistent to finish writing everything we can.
+    }
   }];
-  return YES;
-}
 
+  return success;
+}
 @end
