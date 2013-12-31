@@ -43,7 +43,6 @@
 -(void)makeWindowControllers{
   NSWindowController *controller = [[MCMWindowController alloc] initWithMap:[self map]];
   [self addWindowController:controller];
-  NSLog(@"TYPE: %@", [self fileType]);
 }
 
 
@@ -52,37 +51,36 @@
   [savePanel setExtensionHidden:NO];
   [savePanel setCanSelectHiddenExtension:NO];
   [savePanel setPrompt:@"Export"];
-  [savePanel setMessage:@"NOTE: an .atlas folder will be created\nautomatically along side this .plist"];
-  [savePanel setAllowedFileTypes:@[@"plist"]];
+  [savePanel setMessage:@"This folder will be created and populated with\nan atlas and plist."];
+  [savePanel setAllowedFileTypes:@[@"public.folder"]];
   return YES;
 }
 
 
--(BOOL)writeSafelyToURL:(NSURL *)url ofType:(NSString *)typeName forSaveOperation:(NSSaveOperationType)saveOperation error:(NSError *__autoreleasing *)outError{
-
+-(BOOL)writeSafelyToURL:(NSURL *)dirURL ofType:(NSString *)typeName forSaveOperation:(NSSaveOperationType)saveOperation error:(NSError *__autoreleasing *)outError{
+  NSString *name = [dirURL lastPathComponent];
+  [[NSFileManager defaultManager] createDirectoryAtURL:dirURL withIntermediateDirectories:NO attributes:nil error:NULL];
+  
   NSDictionary *plist = [[self map] serialize];
-  BOOL plistSuccess = [plist writeToURL:url atomically:NO];
+  NSURL *plistURL = [[[dirURL URLByAppendingPathComponent:name] URLByAppendingPathExtension:@"tmx"] URLByAppendingPathExtension:@"plist"];
+  BOOL plistSuccess = [plist writeToURL:plistURL atomically:NO];
   
   NSDictionary *images = [[self map] tileImages];
-  BOOL imageSuccess = [self saveAtlasImages:images withURL:url];
-  return plistSuccess && imageSuccess;
+  NSURL *atlasURL = [[dirURL URLByAppendingPathComponent:name] URLByAppendingPathExtension:@"atlas"];
+  BOOL atlasSuccess = [self saveImages:images toAtlas:atlasURL];
+
+  return plistSuccess && atlasSuccess;
 }
 
 
 #pragma mark - UTILITY
--(NSURL *)atlasURLFromURL:(NSURL *)plistURL{
-  return [[plistURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"atlas"];
-}
-
-
--(BOOL)saveAtlasImages:(NSDictionary *)images withURL:(NSURL *)plistURL{
+-(BOOL)saveImages:(NSDictionary *)images toAtlas:(NSURL *)atlasURL{
   __block BOOL success = YES;
-  NSURL *dirURL = [self atlasURLFromURL:plistURL];
   //We don't care if this succeeds. If the directory doesn't exist we'll error our below.
-  [[NSFileManager defaultManager] createDirectoryAtURL:dirURL withIntermediateDirectories:NO attributes:nil error:NULL];
+  [[NSFileManager defaultManager] createDirectoryAtURL:atlasURL withIntermediateDirectories:NO attributes:nil error:NULL];
   
   [images enumerateKeysAndObjectsUsingBlock:^(NSString *name, NSImage *image, BOOL *stop) {
-    NSURL *imageURL = [dirURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", name]];
+    NSURL *imageURL = [[atlasURL URLByAppendingPathComponent:name] URLByAppendingPathExtension:@"png"];
     CGImageRef imageRef = [image CGImageForProposedRect:NULL context:nil hints:nil];
     NSBitmapImageRep *bitmap = [[NSBitmapImageRep alloc] initWithCGImage:imageRef];
     NSData *data = [bitmap representationUsingType:NSPNGFileType properties:nil];
