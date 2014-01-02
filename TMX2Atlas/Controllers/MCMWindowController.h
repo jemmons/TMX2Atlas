@@ -8,6 +8,7 @@
 @property (weak) IBOutlet NSTextField *tileDimensionLabel;
 @property (weak) IBOutlet NSLayoutConstraint *tileHeightConstraint;
 @property (weak) IBOutlet NSLayoutConstraint *tileWidthConstraint;
+@property (weak) IBOutlet NSTextField *dateLabel;
 
 -(id)initWithMap:(MCMMap *)aMap;
 @end

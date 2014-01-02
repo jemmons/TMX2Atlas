@@ -25,7 +25,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="574" height="418"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DtR-MT-prV">
+                    <textField horizontalHuggingPriority="252" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DtR-MT-prV">
                         <rect key="frame" x="18" y="379" width="402" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="Chc-yL-Svs">
@@ -234,7 +234,6 @@
                     </customView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="FvY-ay-2eI" firstAttribute="leading" secondItem="DtR-MT-prV" secondAttribute="trailing" constant="8" symbolic="YES" id="4TY-fg-TsY"/>
                     <constraint firstAttribute="bottom" secondItem="fdZ-2Q-Kge" secondAttribute="bottom" constant="20" symbolic="YES" id="4af-e6-xOC"/>
                     <constraint firstItem="FvY-ay-2eI" firstAttribute="leading" secondItem="p1o-5O-RZ8" secondAttribute="trailing" constant="8" symbolic="YES" id="4bb-XU-wfg"/>
                     <constraint firstItem="vla-v6-VvJ" firstAttribute="top" secondItem="fdZ-2Q-Kge" secondAttribute="top" id="6ib-4g-DGg"/>
@@ -242,19 +241,20 @@
                     <constraint firstItem="fdZ-2Q-Kge" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="20" symbolic="YES" id="EwL-mr-kA7"/>
                     <constraint firstItem="p1o-5O-RZ8" firstAttribute="top" secondItem="DtR-MT-prV" secondAttribute="bottom" constant="1" id="IGo-wa-IKN"/>
                     <constraint firstItem="A4Z-Wq-DjY" firstAttribute="top" secondItem="FvY-ay-2eI" secondAttribute="bottom" constant="10" id="LJ0-Pd-MDp"/>
+                    <constraint firstItem="FvY-ay-2eI" firstAttribute="top" secondItem="6" secondAttribute="top" constant="20" symbolic="YES" id="MIf-WN-pYl"/>
                     <constraint firstItem="DtR-MT-prV" firstAttribute="top" secondItem="6" secondAttribute="top" constant="20" symbolic="YES" id="Nsc-z5-LMD"/>
                     <constraint firstItem="DtR-MT-prV" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="20" symbolic="YES" id="S7d-Nk-y2c"/>
                     <constraint firstItem="A4Z-Wq-DjY" firstAttribute="baseline" secondItem="7j0-AS-Y56" secondAttribute="baseline" id="V18-Ds-3Hl"/>
                     <constraint firstItem="fdZ-2Q-Kge" firstAttribute="top" secondItem="7j0-AS-Y56" secondAttribute="bottom" constant="8" symbolic="YES" id="Wh7-f3-bsb"/>
                     <constraint firstItem="vla-v6-VvJ" firstAttribute="width" secondItem="fdZ-2Q-Kge" secondAttribute="width" id="Xx2-0E-FQg"/>
                     <constraint firstAttribute="trailing" secondItem="vla-v6-VvJ" secondAttribute="trailing" constant="20" symbolic="YES" id="ZHc-dk-zw9"/>
+                    <constraint firstItem="FvY-ay-2eI" firstAttribute="leading" secondItem="DtR-MT-prV" secondAttribute="trailing" constant="8" symbolic="YES" id="ece-aj-X5C"/>
                     <constraint firstAttribute="bottom" secondItem="vla-v6-VvJ" secondAttribute="bottom" constant="20" symbolic="YES" id="pM7-C9-xKh"/>
                     <constraint firstItem="A4Z-Wq-DjY" firstAttribute="leading" secondItem="vla-v6-VvJ" secondAttribute="leading" id="pmf-l7-gIU"/>
                     <constraint firstItem="7j0-AS-Y56" firstAttribute="leading" secondItem="fdZ-2Q-Kge" secondAttribute="leading" id="qlu-EW-siB"/>
                     <constraint firstItem="vla-v6-VvJ" firstAttribute="leading" secondItem="fdZ-2Q-Kge" secondAttribute="trailing" constant="8" symbolic="YES" id="sPH-BO-wOM"/>
                     <constraint firstItem="vla-v6-VvJ" firstAttribute="bottom" secondItem="fdZ-2Q-Kge" secondAttribute="bottom" id="tgJ-KB-Bo2"/>
                     <constraint firstItem="p1o-5O-RZ8" firstAttribute="leading" secondItem="DtR-MT-prV" secondAttribute="leading" id="xzk-Er-jxm"/>
-                    <constraint firstItem="FvY-ay-2eI" firstAttribute="top" secondItem="DtR-MT-prV" secondAttribute="top" id="z7I-Qh-sX9"/>
                 </constraints>
             </view>
             <connections>

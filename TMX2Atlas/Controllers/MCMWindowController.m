@@ -28,8 +28,13 @@ static NSString * const kLayerCell = @"LayerCell";
 -(void)windowDidLoad{
   [super windowDidLoad];
   
+  NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[[[self document] fileURL] path] error:NULL];
+  NSDate *date = fileAttributes[NSFileModificationDate];
+  NSString *formattedDate = [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+  
+  [[self dateLabel] setStringValue:formattedDate];
   [[self titleLabel] setStringValue:[[self document] displayName]];
-  [[self detailLabel] setStringValue:[NSString stringWithFormat:@"(%lu × %lu tiles)", (unsigned long)[[self map] width], (unsigned long)[[self map] height]]];
+  [[self detailLabel] setStringValue:[NSString stringWithFormat:@"%lu × %lu tiles, modified: %@", (unsigned long)[[self map] width], (unsigned long)[[self map] height], formattedDate]];
   [[self tileDimensionLabel] setStringValue:[NSString stringWithFormat:@"%lu × %lu", (unsigned long)[[self map] tileWidth], (unsigned long)[[self map] tileWidth]]];
   [[self tileWidthConstraint] setConstant:[[self map] tileWidth]];
   [[self tileHeightConstraint] setConstant:[[self map] tileHeight]];
