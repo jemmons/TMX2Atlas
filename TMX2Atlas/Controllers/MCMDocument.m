@@ -20,6 +20,15 @@
 }
 
 
+-(BOOL)revertToContentsOfURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError{
+  BOOL success =[super revertToContentsOfURL:url ofType:typeName error:outError];
+  if(success){
+    [(MCMWindowController *)[self windowControllers][0] setMap:[self map]];
+  }
+  return success;
+}
+
+
 #pragma mark - DOCUMENT METHODS
 +(BOOL)autosavesInPlace{
   return NO;
@@ -41,7 +50,8 @@
 
 
 -(void)makeWindowControllers{
-  NSWindowController *controller = [[MCMWindowController alloc] initWithMap:[self map]];
+  MCMWindowController *controller = [[MCMWindowController alloc] init];
+  [controller setMap:[self map]];
   [self addWindowController:controller];
 }
 

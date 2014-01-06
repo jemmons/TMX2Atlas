@@ -11,15 +11,14 @@ static NSString * const kLayerCell = @"LayerCell";
 
 
 @interface MCMWindowController ()
-@property MCMMap *map;
 @end
 
 
 @implementation MCMWindowController
 #pragma mark - INIT/SETUP
--(id)initWithMap:(MCMMap *)aMap{
+-(id)init{
   if((self = [super initWithWindowNibName:@"MCMDocument"])){
-    [self setMap:aMap];
+    //
   }
   return self;
 }
@@ -27,17 +26,14 @@ static NSString * const kLayerCell = @"LayerCell";
 
 -(void)windowDidLoad{
   [super windowDidLoad];
-  
-  NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[[[self document] fileURL] path] error:NULL];
-  NSDate *date = fileAttributes[NSFileModificationDate];
-  NSString *formattedDate = [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
-  
-  [[self dateLabel] setStringValue:formattedDate];
-  [[self titleLabel] setStringValue:[[self document] displayName]];
-  [[self detailLabel] setStringValue:[NSString stringWithFormat:@"%lu × %lu tiles, modified: %@", (unsigned long)[[self map] width], (unsigned long)[[self map] height], formattedDate]];
-  [[self tileDimensionLabel] setStringValue:[NSString stringWithFormat:@"%lu × %lu", (unsigned long)[[self map] tileWidth], (unsigned long)[[self map] tileWidth]]];
-  [[self tileWidthConstraint] setConstant:[[self map] tileWidth]];
-  [[self tileHeightConstraint] setConstant:[[self map] tileHeight]];
+  [self updateInterface];
+}
+
+
+#pragma mark - ACCESSORS
+-(void)setMap:(MCMMap *)map{
+  _map = map;
+  [self updateInterface];
 }
 
 
@@ -66,6 +62,23 @@ static NSString * const kLayerCell = @"LayerCell";
 
 
 #pragma mark - UTILITY
+-(void)updateInterface{
+  NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[[[self document] fileURL] path] error:NULL];
+  NSDate *date = fileAttributes[NSFileModificationDate];
+  NSString *formattedDate = [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
+  NSString *formattedTime = [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
+  
+  [[self titleLabel] setStringValue:[[self document] displayName]];
+  [[self detailLabel] setStringValue:[NSString stringWithFormat:@"%lu × %lu tiles, %@ %@", (unsigned long)[[self map] width], (unsigned long)[[self map] height], formattedDate, formattedTime]];
+  [[self tileDimensionLabel] setStringValue:[NSString stringWithFormat:@"%lu × %lu", (unsigned long)[[self map] tileWidth], (unsigned long)[[self map] tileWidth]]];
+  [[self tileWidthConstraint] setConstant:[[self map] tileWidth]];
+  [[self tileHeightConstraint] setConstant:[[self map] tileHeight]];
+  
+  [[self tilesetTable] reloadData];
+  [[self layerTable] reloadData];
+}
+
+
 -(NSView *)tilesetCellForTable:(NSTableView *)tableView atIndex:(NSInteger)anIndex{
   NSTableCellView *cell = [tableView makeViewWithIdentifier:kTilesetCell owner:self];
   MCMTileset *tileset = [[[self map] tilesets] objectAtIndex:anIndex];
@@ -77,7 +90,9 @@ static NSString * const kLayerCell = @"LayerCell";
 
 -(NSView *)layerCellForTable:(NSTableView *)tableView atIndex:(NSInteger)anIndex{
   NSTableCellView *cell = [tableView makeViewWithIdentifier:kLayerCell owner:self];
-  MCMLayer *layer = [[[self map] layers] objectAtIndex:anIndex];
+  //Tiled actually numbers its layers from the bottom up, so we reverse them first.
+  NSArray *reversedLayers = [[[[self map] layers] reverseObjectEnumerator] allObjects];
+  MCMLayer *layer = [reversedLayers objectAtIndex:anIndex];
   
   NSString *name = [[layer name] stringByAppendingString:@":"];
   NSFont *bold = [NSFont boldSystemFontOfSize:13.0f];

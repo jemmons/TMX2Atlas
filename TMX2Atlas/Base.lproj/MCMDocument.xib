@@ -7,9 +7,11 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MCMWindowController">
             <connections>
                 <outlet property="detailLabel" destination="p1o-5O-RZ8" id="Pff-1u-Axb"/>
+                <outlet property="layerTable" destination="sTF-qD-z1j" id="OBm-G5-tL1"/>
                 <outlet property="tileDimensionLabel" destination="2th-WG-OXM" id="SZ9-q8-feQ"/>
                 <outlet property="tileHeightConstraint" destination="Z9K-YU-wAv" id="dAH-A3-g59"/>
                 <outlet property="tileWidthConstraint" destination="los-NT-327" id="QDA-68-I6R"/>
+                <outlet property="tilesetTable" destination="nkX-oR-jsl" id="wES-tY-wwg"/>
                 <outlet property="titleLabel" destination="DtR-MT-prV" id="SF0-so-vVV"/>
                 <outlet property="window" destination="5" id="18"/>
             </connections>
@@ -257,6 +259,48 @@
                     <constraint firstItem="p1o-5O-RZ8" firstAttribute="leading" secondItem="DtR-MT-prV" secondAttribute="leading" id="xzk-Er-jxm"/>
                 </constraints>
             </view>
+            <toolbar key="toolbar" implicitIdentifier="5ADE422B-6F43-4230-847A-2E1B9E129368" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="PI0-VJ-FDE">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="UcD-18-1hy"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="SeJ-A6-sSY"/>
+                    <toolbarItem implicitItemIdentifier="2C762487-8591-48B2-8A30-17D2B6B8DF3A" label="Reload" paletteLabel="Reload" image="NSRefreshTemplate" id="Sr8-Ea-nwf">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="0.0" height="25"/>
+                        <size key="maxSize" width="41" height="25"/>
+                        <button key="view" verticalHuggingPriority="750" id="8l0-rM-KCJ">
+                            <rect key="frame" x="7" y="14" width="30" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7FA-Tr-jAE">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <connections>
+                            <action selector="revertDocumentToSaved:" target="-1" id="UGV-fO-Op7"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="B796AB0E-BEC3-4405-9488-4F6BD3A61DC2" label="Export" paletteLabel="Export" image="NSShareTemplate" id="Bpv-n3-w2D">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="0.0" height="25"/>
+                        <size key="maxSize" width="41" height="28"/>
+                        <button key="view" verticalHuggingPriority="750" id="cqB-r8-1IQ">
+                            <rect key="frame" x="6" y="14" width="30" height="28"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSShareTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mqI-c9-Yih">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <connections>
+                            <action selector="saveDocumentTo:" target="-1" id="rHO-Zp-ERF"/>
+                        </connections>
+                    </toolbarItem>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="Sr8-Ea-nwf"/>
+                    <toolbarItem reference="Bpv-n3-w2D"/>
+                </defaultToolbarItems>
+            </toolbar>
             <connections>
                 <outlet property="delegate" destination="-2" id="17"/>
             </connections>
@@ -265,5 +309,7 @@
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSRefreshTemplate" width="10" height="12"/>
+        <image name="NSShareTemplate" width="18" height="16"/>
     </resources>
 </document>

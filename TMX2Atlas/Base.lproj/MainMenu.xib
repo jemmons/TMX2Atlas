@@ -84,14 +84,20 @@
                             <menuItem isSeparatorItem="YES" id="79">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Close" keyEquivalent="w" id="73">
+                            <menuItem title="Reload Map" keyEquivalent="r" id="fPv-6f-le4">
                                 <connections>
-                                    <action selector="performClose:" target="-1" id="193"/>
+                                    <action selector="revertDocumentToSaved:" target="-1" id="7M6-KA-mB8"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Export Atlas…" keyEquivalent="s" id="75">
                                 <connections>
                                     <action selector="saveDocumentTo:" target="-1" id="wa7-an-Pys"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="xj5-zr-gqC"/>
+                            <menuItem title="Close" keyEquivalent="w" id="73">
+                                <connections>
+                                    <action selector="performClose:" target="-1" id="193"/>
                                 </connections>
                             </menuItem>
                         </items>
