@@ -43,7 +43,9 @@
   
   if( ! [self map]){
     success = NO;
-    *outError = [NSError errorWithDomain:@"TMX2AtlasDomain" code:-100 userInfo:@{NSLocalizedDescriptionKey: @"Could not parse TMX file."}];
+    if(outError){
+      *outError = [NSError errorWithDomain:@"TMX2AtlasDomain" code:-100 userInfo:@{NSLocalizedDescriptionKey: @"Could not parse TMX file."}];
+    }
   }
   return success;
 }
