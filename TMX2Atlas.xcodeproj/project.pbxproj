@@ -13,6 +13,8 @@
 		73196F42186DF0E900A6FE22 /* MCMTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73196F41186DF0E900A6FE22 /* MCMTileView.m */; };
 		73196F45186E122100A6FE22 /* NSArray+HOF.m in Sources */ = {isa = PBXBuildFile; fileRef = 73196F44186E122100A6FE22 /* NSArray+HOF.m */; };
 		73196F49186F472200A6FE22 /* MCMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73196F48186F472200A6FE22 /* MCMAppDelegate.m */; };
+		73197832188A2E3700EE16A3 /* 3x3test.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 73197830188A2E3700EE16A3 /* 3x3test.tmx */; };
+		73197833188A2E3700EE16A3 /* tiles.png in Resources */ = {isa = PBXBuildFile; fileRef = 73197831188A2E3700EE16A3 /* tiles.png */; };
 		7335635B1861F6C200817015 /* MCMMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335635A1861F6C200817015 /* MCMMap.m */; };
 		7335635F1861FC7900817015 /* MCMTMXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335635E1861FC7900817015 /* MCMTMXParser.m */; };
 		7363FB0D18711E11004E081D /* MCMWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7363FB0C18711E11004E081D /* MCMWindowController.m */; };
@@ -24,8 +26,7 @@
 		73ECFA321861484600FB42F8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73ECFA311861484600FB42F8 /* Images.xcassets */; };
 		73ECFA391861484600FB42F8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73ECFA381861484600FB42F8 /* XCTest.framework */; };
 		73ECFA3A1861484600FB42F8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73ECFA161861484600FB42F8 /* Cocoa.framework */; };
-		73ECFA421861484600FB42F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73ECFA401861484600FB42F8 /* InfoPlist.strings */; };
-		73ECFA441861484600FB42F8 /* TMX2AtlasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ECFA431861484600FB42F8 /* TMX2AtlasTests.m */; };
+		73ECFA441861484600FB42F8 /* ThreeByThreeMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ECFA431861484600FB42F8 /* ThreeByThreeMapTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		73196F44186E122100A6FE22 /* NSArray+HOF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+HOF.m"; sourceTree = "<group>"; };
 		73196F47186F472200A6FE22 /* MCMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMAppDelegate.h; sourceTree = "<group>"; };
 		73196F48186F472200A6FE22 /* MCMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMAppDelegate.m; sourceTree = "<group>"; };
+		73197830188A2E3700EE16A3 /* 3x3test.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 3x3test.tmx; sourceTree = "<group>"; };
+		73197831188A2E3700EE16A3 /* tiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiles.png; sourceTree = "<group>"; };
 		733563591861F6C200817015 /* MCMMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMMap.h; sourceTree = "<group>"; };
 		7335635A1861F6C200817015 /* MCMMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMMap.m; sourceTree = "<group>"; };
 		7335635D1861FC7900817015 /* MCMTMXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMTMXParser.h; sourceTree = "<group>"; };
@@ -72,8 +75,7 @@
 		73ECFA371861484600FB42F8 /* TMX2AtlasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMX2AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73ECFA381861484600FB42F8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		73ECFA3F1861484600FB42F8 /* TMX2AtlasTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TMX2AtlasTests-Info.plist"; sourceTree = "<group>"; };
-		73ECFA411861484600FB42F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		73ECFA431861484600FB42F8 /* TMX2AtlasTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMX2AtlasTests.m; sourceTree = "<group>"; };
+		73ECFA431861484600FB42F8 /* ThreeByThreeMapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeByThreeMapTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,7 +214,7 @@
 		73ECFA3D1861484600FB42F8 /* TMX2AtlasTests */ = {
 			isa = PBXGroup;
 			children = (
-				73ECFA431861484600FB42F8 /* TMX2AtlasTests.m */,
+				73ECFA431861484600FB42F8 /* ThreeByThreeMapTests.m */,
 				73ECFA3E1861484600FB42F8 /* Supporting Files */,
 			);
 			path = TMX2AtlasTests;
@@ -221,10 +223,12 @@
 		73ECFA3E1861484600FB42F8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				73197830188A2E3700EE16A3 /* 3x3test.tmx */,
+				73197831188A2E3700EE16A3 /* tiles.png */,
 				73ECFA3F1861484600FB42F8 /* TMX2AtlasTests-Info.plist */,
-				73ECFA401861484600FB42F8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,7 +319,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73ECFA421861484600FB42F8 /* InfoPlist.strings in Resources */,
+				73197832188A2E3700EE16A3 /* 3x3test.tmx in Resources */,
+				73197833188A2E3700EE16A3 /* tiles.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,7 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73ECFA441861484600FB42F8 /* TMX2AtlasTests.m in Sources */,
+				73ECFA441861484600FB42F8 /* ThreeByThreeMapTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,14 +377,6 @@
 				73ECFA2F1861484600FB42F8 /* Base */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		73ECFA401861484600FB42F8 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				73ECFA411861484600FB42F8 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -485,18 +482,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TMX2Atlas.app/Contents/MacOS/TMX2Atlas";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TMX2Atlas/TMX2Atlas-Prefix.pch";
+				GCC_PREFIX_HEADER = "TMX2Atlas/Supporting/TMX2Atlas-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "TMX2AtlasTests/TMX2AtlasTests-Info.plist";
+				INFOPLIST_FILE = "TMX2AtlasTests/Supporting/TMX2AtlasTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -507,14 +505,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TMX2Atlas.app/Contents/MacOS/TMX2Atlas";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TMX2Atlas/TMX2Atlas-Prefix.pch";
-				INFOPLIST_FILE = "TMX2AtlasTests/TMX2AtlasTests-Info.plist";
+				GCC_PREFIX_HEADER = "TMX2Atlas/Supporting/TMX2Atlas-Prefix.pch";
+				INFOPLIST_FILE = "TMX2AtlasTests/Supporting/TMX2AtlasTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
